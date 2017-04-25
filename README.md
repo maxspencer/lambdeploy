@@ -1,6 +1,6 @@
 # lambdeploy
 
-A node package for creating AWS lambda functions which build and deploy
+A package for creating AWS lambda functions which build and deploy
 statically-generated websites.
 
     npm install lambdeploy --save

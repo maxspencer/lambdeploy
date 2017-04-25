@@ -1,7 +1,7 @@
 {
   "name": "lambdeploy",
-  "version": "0.1.0",
-  "description": "Basis for lambda functions that build and deploy static websites",
+  "version": "0.1.1",
+  "description": "A package for creating AWS lambda functions which build and deploy statically-generated websites.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
