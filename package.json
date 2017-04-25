@@ -1,0 +1,29 @@
+{
+  "name": "lambdeploy",
+  "version": "0.1.0",
+  "description": "Basis for lambda functions that build and deploy static websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxspencer/lambdeploy.git"
+  },
+  "keywords": [
+    "lambda"
+  ],
+  "author": "Max Spencer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxspencer/lambdeploy/issues"
+  },
+  "homepage": "https://github.com/maxspencer/lambdeploy#readme",
+  "dependencies": {
+    "aws-sdk": "^2.45.0",
+    "follow-redirects": "^1.2.3",
+    "s3": "^4.4.0",
+    "tar": "^2.2.1",
+    "yaml-js": "^0.1.5"
+  }
+}
