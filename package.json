@@ -1,6 +1,6 @@
 {
   "name": "lambdeploy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A package for creating AWS lambda functions which build and deploy statically-generated websites.",
   "main": "index.js",
   "scripts": {

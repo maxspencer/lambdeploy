@@ -66,7 +66,6 @@ exports.createHandler = function(buildFunction) {
 	    var files = fs.readdirSync(tmpDir);
 	    var tmpBaseDir = path.join(tmpDir, files[0]);
 	    var config = yaml.load(fs.readFileSync(path.join(tmpBaseDir, configFilePath)))
-	    var tmpBuildDir = path.join(tmpBaseDir, config.buildDir);
 	    var tmpNodeModules = path.join(tmpBaseDir, 'node_modules');
 	    var packageNodeModules = path.join(process.cwd(), 'node_modules');
 	    console.log('Temporary working directory is ' + tmpBaseDir);
@@ -77,17 +76,17 @@ exports.createHandler = function(buildFunction) {
 			return;
 		    }
 		    console.log('Calling buildFunction...');
-		    buildFunction(tmpBaseDir, function(err) {
+		    buildFunction(tmpBaseDir, function(err, buildDir) {
 			if (err) {
 			    callback(err);
 			    return;
 			}
-			console.log('Generated site files in ' + tmpBuildDir);
+			console.log('Generated site files in ' + buildDir);
 			console.log('Uploading to S3 bucket ' + config.s3Bucket + ' in ' + config.s3Region);
 			var awsS3Client = new AWS.S3({ region: config.s3Region	});
 			var s3Client = s3.createClient({ s3Client: awsS3Client });
 			var uploader = s3Client.uploadDir({
-			    localDir: tmpBuildDir,
+			    localDir: buildDir,
 			    deleteRemoved: true,				
 			    s3Params: {
 				Bucket: config.s3Bucket,
